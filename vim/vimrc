@@ -1,0 +1,31 @@
+syntax on
+set showmatch
+set ts=4
+set sts=4
+set sw=4
+set autoindent
+set smartindent
+set smarttab
+set expandtab
+set number
+set exrc
+set secure
+
+if &diff
+    colorscheme evening
+endif
+
+set colorcolumn=100
+set foldmethod=syntax
+highlight ColorColumn ctermbg=Red
+
+
+augroup project
+    autocmd!
+    autocmd BufRead,BufNewFile *.h,*.c,*.txt,*.def set filetype=c.doxygen
+augroup END
+
+
+execute pathogen#infect()
+filetype plugin indent on
+
